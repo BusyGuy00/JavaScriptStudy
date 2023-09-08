@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>전체 선택 <input type="checkbox" id="allcheck" name="allcheck"></p>
+    <p>사과 <input type="checkbox" value="사과" class="fruits" id="one" name="fruit"></p>
+    <p>오렌지 <input type="checkbox" value="사과" class="fruits" id="two" name="fruit"></p>
+    <p>바나나 <input type="checkbox" value="사과" class="fruits" id="three" name="fruit"></p>
+    <p>
+        <button id="total">결과 확인</button>
+        <button id="allbutton">전체 선택</button>
+    </p>
+    <p id="result"></p>
+    <script>
+        let allcheck = document.querySelector("#allcheck");
+        const inputs = document.querySelectorAll(".fruits");
+        let totalbtn = document.querySelector("#total");
+        let allbtn = document.querySelector("#allbutton");
+
+        totalbtn.addEventListener("clcik",function(){
+            let fruitsInput = document.querySelectorAll("input");
+            let str = "";
+            fruitsInput.forEach(input=>{
+                str = input.chekced ? str + input.value : str;
+                result.innerHTML = str;
+            })
+           
+           
+        })
+        
+
+
+    </script>
+</body>
+</html>

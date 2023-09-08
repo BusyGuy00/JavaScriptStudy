@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Student (name, age){
+            this.name = name;
+            this.age= age;
+        }
+        let Student1 = new Student("민영",22);
+        // for in문 변수에 객체의 키가 순차적으로 할당
+        for (let k in Student1){ // key k 가 담긴다
+            // console.log(k); // name 과 age가 담긴 걸 알 수 있다. 
+            console.log(Student1[k]); // 키 k에 담겨진 naem의 민영 , age의 22이가 순차적으로 출력 된다. 
+        }
+        // in 연산자 = 해당하는 Object에 키가 있는지 있으면 true 없으면 false 리턴
+        // 키 in 객체 
+        console.log("name" in Student1);
+        console.log("job" in Student1);
+
+        // 다양하게 키 값 불러 오기
+        let keys = Object.keys(Student1);
+        let values = Object.values(Student1);
+        let enrties = Object.entries(Student1);
+            console.log(keys);
+            console.log(values);
+            console.log(enrties);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //자바스크립트는 []안에 배열을 넣는다
+
+        let fruit = "🎶";
+        let fruits = ["🍉","🍓","🍑","🍋","🍒"];
+        // console.log(fruits(fruits[2]));
+        // console.log(fruit.length)
+        for (let i=0; i<fruits.length; i++){
+            console.log(fruits[i]);
+        }
+        for(let f of fruits){
+            console.log(f);
+        }
+        // 배열 0번째를 다른 것으로 바꾸겠다.
+        fruits[0] = "🍕"
+        console.log(fruits[0])
+        fruits.splice(1,0,"🍟");
+        console.log(fruits)
+        console.log(fruits.indexOf("🍟"));
+        console.log(fruits.includes("🍟"));
+
+        //배열을 문자열로 나타내게 한다
+        let fruitstr = fruits.join("와");
+        console.log(fruitstr)
+        // 배열을 거꾸로 보이게 한다
+        fruits.reverse();
+        console.log(fruits);
+
+        //slice 지정한 변수 1~4까지의 배열을 새로운 배열로 만들어 준다 
+        let newfrtuits = fruits.slice(1,4);
+        console.log(newfrtuits);
+    </script>
+</body>
+</html>

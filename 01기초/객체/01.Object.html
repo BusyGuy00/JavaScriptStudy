@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name : "green",
+            age : 30,
+            sayHi: function(){   //객체가 가지고 있는 함수를 메소드라고 한다.
+                console.log(this.name); // 자신이 포함된 객체의 값을 불러오기 떄문에 user.name가 아니라 this.name로 변경 된다.
+            }
+        }
+        user.sayHi();
+
+        // console.log(user.name);
+        // console.log(user["age"]);
+        // // user의 배열을 추가 한다
+        // user.isAdmin = true; //유저 배열에 Admin true를 추가
+        // console.log(user);
+        // delete user.age;
+        // console.log(user);
+        // //메소드 호출
+        // user.sayHi();
+        // //함수
+        // function myFun(){
+        //     console.log("aaaa");
+        // };
+        // myFun();
+        // // alert("AAA");
+
+
+
+          //생성자 함수 
+          function User (name,age,phone) {
+                this.name = name;
+                this.age = age;
+                this.phone = phone;
+                this.sayHi = function() {
+                    console.log ("내 이름은" + this.name);
+                }
+          }
+          let user1 = new User ("철수", 20, "010-1234-1234");
+          let user2 = new User ("유리", 30, "010-1234-1235");
+          let user3 = new User ("맹구", 32, "010-1234-1236");
+                    
+                    
+          //리터럴 함수
+            let user4 = {
+                    name : "철수",
+                    age: 20,
+                    phone: "010 - 1234 - 1234",
+                    sayHi : function() {
+                        console.log ("내 이름은" + this.name);
+            }
+            }
+            let user5 = {
+                    name : "영휘",
+                    age: 25,
+                    phone: "010 - 1234 - 1235",
+                    sayHi : function() {
+                        console.log ("내 이름은" + this.name);
+            }
+            }
+            console.log(user1);
+            console.log(user2);
+            console.log(user3);
+            console.log(user4);
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let foods = ["🍟","🌭","🥐","🥞","🍘"];
+        let [aa,bb, ...cc] = foods;
+        console.log(aa);
+        console.log(bb);
+        console.log(cc);
+
+
+        let str1 = "green";
+        let str2 = "blue";
+        [str1, str2] = [str2, str1];
+        console.log("str1에 담긴 값은 :" +str1);
+        console.log("str2에 담긴 값은 :" +str2);
+
+        let user = { name : "green", age : 20 };
+        // let name = user.name;
+        // let age = user.age;
+        //객체 구조 분해 할당을 통해서 아래와 같이 간략화 시킬 수 있다.
+        let { name, age } = user;
+        console.log(name);
+        console.log(age);
+        //name키의 value값을 변수 n에 할당 age키의 value값을 변수 a에
+        //구조분해 할당
+        let { name : n, age: a } = user;
+        console.log("n에 담긴 값을 : " + n);
+
+        // 함수에서 사용 
+        let dog1 = { name: "구름", age: 4, color: "흰색"}
+
+        // function dogPrint(obj){
+        //     let name = obj.name;
+        //     let age = obj.age;
+        //     let color = obj.color;
+        //     console.log("저희 강아지 이룸은" + name +" 입니다,")
+        //     console.log("저희 강아지 나이는" + age +" 입니다,")
+        //     console.log("저희 강아지 생상은" + color +" 입니다,")
+        // }
+        dogPrint(dog1)
+        // 전달받은 객체를 분해해 변수에 즉시 할당 가능 
+        function dogPrint({name, age, color}){
+            
+            console.log("저희 강아지 이룸은 " + name +" 입니다,")
+            console.log("저희 강아지 나이는 " + age +" 입니다,")
+            console.log("저희 강아지 생상은 " + color +" 입니다,")
+        }
+        //함수 에서 구조분해 할당 
+        let dog2 = {name: "구름", age:4, color: "흰색"} 
+        // function dogPrint(obj){
+        //     let name = obj.name;
+        //     let age = obj.age;
+        //     let color = obj.color;
+        //     console.log(name);
+        //     console.log(age);
+        //     console.log(color);
+        // }
+        // dogPrint(dog2)
+        //구조 분해 할당을 통해 밑에 와 같이 간략화 시킬 수 있다.
+        function dogPrint({name,age,color}){
+           
+            console.log(name);
+            console.log(age);
+            console.log(color);
+        }
+        dogPrint(dog2)
+
+        function getPerson(){
+            return{
+                firstName: "john",
+                lastName: "Doe",
+                age : 37,
+                email: "john@gmail.com",
+
+            }
+        }
+            let{ firstName, lastName} = getPerson();
+            console.log(firstName);
+            console.log(lastName);
+        
+    </script>
+</body>
+</html>

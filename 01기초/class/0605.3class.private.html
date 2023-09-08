@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Car{
+            //#은 프라이빗 요소를 부를때 #을 쓴다. 
+            // 프라이빗 요소는 Car 클래스 내부에서만 사용 가능해서 
+            // 캡슐화를 한후에 밖에서 사용 가능 하다
+            #price = 1000;
+            constructor(modelName, moadelYera, type){
+                this.modelName = modelName;
+                this.moadelYera = moadelYera;
+                this.type = type;
+            }
+            getModelName(){
+                return this.modelName;
+            }
+            getModelYear(){
+                return this.modelYear;
+            }
+            getType(){
+                return this.type;
+            }
+            getPrice(){
+                return this.#price;
+            }
+            setModelName(modelName){
+                this.modelName = modelName
+            }
+            setModelYear(modelYear){
+                this.modelYear = modelYear;
+            }
+            setPrice(price){
+                if(price < 0 ){
+                    this.#price = 0;
+                }else {
+                    this.#price = price;
+                }
+            }
+            run(){
+                    console.log ("차가 달립니다.");
+            }
+        }
+        let sonata = new Car("소나타", "2021","e")
+        console.log(sonata.getPrice());
+        sonata.setPrice(-1000);
+        console.log(sonata.getPrice())
+
+    </script>
+</body>
+</html>

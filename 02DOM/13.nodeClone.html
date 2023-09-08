@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box1">
+        <h2>안녕하세요</h2>
+    </div>
+    
+</body>
+<script>
+    let div = document.querySelector("#box1")
+    let div2 = div.cloneNode(true); // 위에 div안에 내용을 복사 한다 (false)일시 div만! 복사 한다
+    div.after(div2); // 다음 노드에 넣어 준다
+</script>
+
+</html>

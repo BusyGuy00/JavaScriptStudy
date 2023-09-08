@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>가격 <input type="text" id="price" name="price"></p>
+    <p>수략
+        <select name="number" id="number">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+        </select>
+    </p>
+    <p>
+        총 가격 <input type="text" id="totalPrice" name="totalPrice">
+    </p>
+    <script>
+        //변수 생성
+        let priceInput = document.querySelector("#price");
+        let selNumber = document.querySelector("#number");
+        let totalPrice = document.querySelector("#totalPrice");
+        //인풋 이벤트 생성
+        priceInput.addEventListener("input",function(){
+            // // 사용자가 숫자가 아닌 문자를 입력시 경고 문자 
+            // let priceNumber = Number(this.value);
+            // //priceNumber 에 문자 ㄴㄴ
+            // if(isNaN(priceNumber)) return;
+            // //input의 변수 지정한 selNumber의value 값과 곱해라
+            // let total = priceNumber * selNumber.value
+            // totalPrice.value=total
+            sum();
+
+        })
+        //셀렉트 변경시의 이벤트 생성
+        selNumber.addEventListener("change",function(){
+            sum();
+        })
+        //셀렉트와 인픗 이벤트에 중복되는 기능이 들어가서 섬이라는 기능을 만들어 넣어 줬다 
+        function sum(){
+            let priceNumber = Number(priceInput.value);
+            if(isNaN(priceNumber)) return;
+            let total = priceNumber * selNumber.value
+            totalPrice.value=total
+        }
+    </script>
+</body>
+</html>

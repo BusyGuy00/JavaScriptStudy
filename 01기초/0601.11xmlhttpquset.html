@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //http요청 
+        const xhr = new XMLHttpRequest (); // XMLHttpRequest  객체 생성
+        //url    요청방식   .open 요청 받을 것에 대한 오픈(설정) 
+        xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/1");
+        //content-type 정의 set은 속성(업데이트) 변경
+        xhr.setRequestHeader("content-type","application/json");
+        //.send();는 요청을 만한다. 요청 전송 
+        xhr.send();
+        xhr.onload = () => {
+            if(xhr.status === 200){
+                //정상적으로 응답되면 상태 200번 
+                const res = JSON.parse(xhr.response);
+                console.log(res);
+            }else {
+                console.log(xhr.status, xhr.statusText)
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    <script>
+        //프롬프트로 값을 받고 console로 출력 
+        //가위바위보게임 랜덤 
+        let user 
+        user = prompt("가위바위보 중에 하나를 내시오")
+
+        let com 
+        com = Math.random();
+        let str = "이겼습니다."
+        if(com >= 0 && com <=0.3333){
+            com = "가위";
+        }else if (com > 0.3333 && com <=0.6666){
+            com = "바위";
+        }else  com = "보";
+            
+        
+        console.log("user : " +user+ "com : "+ com);
+        function compare(user,com){
+        }if(user === com){
+            console.log("비겼습니다.");
+        }else if (((user === "가위") && (com ==="보")) || ((user === "바위")&&(com === "가위")) || ((user === "보") && (com ==="바위"))) {
+            console.log("당신이 이겼습니다.");
+        }else {
+            console.log ("당신이 졌습니다.")
+        }
+
+    </script>
+</body>
+</html>

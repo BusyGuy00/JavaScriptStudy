@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let x = prompt("x?" , "");
+        // let y = prompt("y?" , "");
+        // let result = add(Number(x),Number(y));//덧셈을 해주어야 하는데 prompt는 문자열이기 때문에 Number로 숫자열로 바꿔줘야 한다
+        // if(result>0){
+        //     alert(result)
+        // }else {
+        //     alert("양수를 입력하세요")
+        // }
+        // function add(v1,v2){
+        //     return v1+v2;
+        // }
+        function addMin(x,y){
+        if(x<y){
+             return x;
+        }else {
+             return y;
+        }
+    }
+    function addMin(a,b){
+        return a<b ? a : b ;
+    }
+        addMin (2,5);
+        addMin (3 -1);
+        addMin (1,1);
+        let result2 = addMin(2,5);
+        console.log(result2)
+
+        let x = prompt("숫자를 입력 하시오")
+        let num = Number(x);
+        if(x % 2 ===0){
+            alert("짝수 입니다.")
+        }else if (num % 2 ==1) {
+            alert("홀수 입니다.")
+        }else {
+            alert  ("다시 입력")
+        }
+       
+       
+        
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        li {list-style: none;}
+        html{width: 100%;}
+        body{
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        header{
+            background-color: blueviolet;
+            height: 80px;
+            text-align: center;
+        }
+        #toggle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #toggle span{
+            width: 50%;
+            height: 3px;
+            background-color: black;
+            margin: 2px;
+        }
+        #leftmenu {
+            position: absolute;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+           
+            line-height: 50px;
+            transition: 0.5s;
+        }
+        #leftmenu div:nth-child(1) {
+            height: 100px;
+            width: 100%;
+            display: flex;
+            background-color: white;
+            justify-content: end;
+        }
+        #leftmenu p{
+            background-color: bisque;
+            width: 40%;
+            height: 100%;
+            padding-top: 20px;
+            
+        }
+        #leftmenu ul {
+            width: 100%;
+            background-color: beige;
+        }
+        #leftmenu li {
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+            padding-left: 20px;
+        }
+        .listgroup{
+            position: relative;
+            display: inline-block;
+        }
+        
+
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LOGO</h1>
+        <div id="toggle" onclick="menuOn()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div id = "leftmenu">
+            <div>
+                <p onclick="menuOff()">닫기</p>
+            </div>
+            <ul class="listgroup"> 회사 소개
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+                <li>list4</li>
+                <li>list5</li>
+            </ul>
+            <ul class="listgroup"> 투자 정보 
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+                <li>list4</li>
+                <li>list5</li>
+            </ul>
+            <ul class="listgroup"> 홍보 센터
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+                <li>list4</li>
+                <li>list5</li>
+            </ul>
+            <ul class="listgroup"> 인재 채용
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+                <li>list4</li>
+                <li>list5</li>
+            </ul>
+            <ul class="listgroup"> 교육 신청
+                <li>list1</li>
+                <li>list2</li>
+                <li>list3</li>
+                <li>list4</li>
+                <li>list5</li>
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        function menuOn(){
+            document.querySelector("#leftmenu").style.left = 0;
+        }
+        function menuOff(){
+            document.querySelector("#leftmenu").style.left = "-300px";
+        }
+        
+
+    </script>
+    </header>
+
+    
+</body>
+</html>

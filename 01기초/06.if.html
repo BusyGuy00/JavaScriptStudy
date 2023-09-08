@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // let a1 = +prompt("a1?",""); // +prompt는 형변환 되어 숫자열이 된다
+    // if( a1 == 0) {
+    // alert(0); 
+    // }
+    // if (a1 == 1){
+    // alert(1);
+    // }
+    // if (a1 == 2) {
+    // alert(2);
+    // }
+
+    let a = prompt("a?","");
+    console.log (a);
+    if(a) { // if가 true이라는 조건문 이다 그래야지 빈문자 열 일때 0이 출력이 안된다.
+        switch(Number(a)) {
+            case 0:
+                alert(0);
+            break;
+            case 1:
+                alert(1);
+            break;
+            case 2:
+                alert(2);
+            default:
+                alert("0,1,2만 입력 하세요");
+            }
+        }
+ 
+
+    </script>
+</body>
+</html>

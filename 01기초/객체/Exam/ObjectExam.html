@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function salaries (name, money){
+        //     this.name = name;
+        //     this.money = money;
+        // }
+        // let salaries1 = new salaries ("John" , 100)
+        // let salaries2 = new salaries ("Ann" , 160)
+        // let salaries3 = new salaries ("Pete" , 130)
+
+        // let values1 = Object.values(salaries1);
+        // let values2 = Object.values(salaries2);
+        // let values3 = Object.values(salaries3);
+        //     console.log(values1);
+
+        // sum = (salaries1.money) + (salaries2.money) + (salaries3.money)
+        //     console.log(sum);
+        let salaries= {
+            John: 100,
+            Ann : 160,
+            Pete : 130,
+        }
+        let sum =0;
+        for(let k in salaries){
+            sum =+ salaries[k]
+        }
+        console.log("한계는 :" + sum);
+
+        //생성자 함수 Acc() 를 만드세요 
+        //value프로퍼티가 있음 
+
+        function Accumulator(value){
+            this.value = value;
+            this.read = function() {
+                this.value += Number(prompt("더할 값을 입력해 주세요"));
+            }
+        }
+        let accumulator = new Accumulator(1); // 최소값 1 
+        accumulator.read(); //사용자가 입력하는 값
+        accumulator.read(); // 사용자가 입력하는 값
+        alert(accumulator.value); // 최종 합산 값
+
+
+    </script>
+    
+</body>
+</html>

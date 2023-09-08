@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{margin: 0; padding: 0; box-sizing: border-box;}
+    body > div {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    header div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    header{
+        /* background-image: linear-gradient(to right , #f8ceec,#a88beb ); */
+        background-color: #f8ceec;
+        background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);
+        padding: 40px;
+
+    }
+    header h1{
+        color: #fff;
+        text-align: center;
+    }
+    header input{
+        width: 80%;
+        line-height: 36px;
+        border-radius: 18px;
+        outline: none;
+        border: none;
+    }
+    header button {
+        width: 36px;
+        line-height: 36px;
+        border-radius: 50%;
+        outline: none;
+        border: none;
+        background-color: #dd85f8;
+        color: #fff;
+        font-size: 32px;
+
+    }
+    ul li {
+        padding:  10px 20px;
+        background-color: #eee;
+        border-bottom: 1px solid #ccc;
+        list-style: none;
+    }
+    ul li span {
+        display: flex;
+        justify-content: end;
+    }
+</style>
+<body>
+    <div>
+    <header>
+        <h1>Todo List</h1>
+        <div>
+            <input type="text" id="inputtext">
+            <button> + </button>
+        </div>
+    </header>
+        <ul id="todos">
+    
+        </ul>
+    </div>
+    <script>
+        //+ 버튼을 클릭 했을때 ul에 li를 추가 해야 한다 
+        //li 내용은 input에 적힌 값 (value)
+        //변수 준비 btn,input,ul 
+        const btn = document.querySelector("button");
+        const input = document.querySelector("input");
+        const ul = document.querySelector("#todos");
+
+        btn.addEventListener("click", function(){ // 인풋에 값이 없으면 추가 하지 않는다 .
+            if(!input.value){
+                return
+            }
+            let li = document.createElement("li") //li만들기
+            li.innerHTML = input.value+ "<span> X </span>"
+            // li.innerHTML = input.value // input에 적힌 값 가져오기 
+            ul.append(li); //li를 ul에 추가 하기
+            spanEvent();
+            input.value=""; // 추가 될때 문자열 추기 
+        });
+
+        function spanEvent(){
+            let spans = document.querySelectorAll ("li span");
+            if(!spans) {return ;}
+            spans.forEach(span => {
+                span.addEventListener("click",function(){
+                    this.parentElement.remove();
+                })
+            })
+
+
+        }
+
+    </script>
+    </header>
+</body>
+</html>

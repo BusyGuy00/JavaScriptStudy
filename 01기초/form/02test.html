@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>가격 <input type="text" id="name" name="name"></p>
+    <p><select name="num" id="num">
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="90">90</option>
+    </select></p>
+    <p>
+        총 가격 <input type="text" id="totalPrice" name="totalPrice">
+    </p>
+    <script>
+        let priceInput = document.querySelector("#name");
+        let selnum = document.querySelector("#num");
+        let total = document.querySelector("#totalPrice");
+        
+        priceInput.addEventListener("input",function(){
+            let priceNumber = Number(this.value)
+            if(isNan(priceNumber)) return
+            let total = priceNumber * selnum.value
+            total.value=total
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p id="time"></p>
+        <p>
+            <span id="hour"></span>
+            <span id="minute"></span>
+            <span id="second"></span>
+        </p>
+    </div>
+    <div>
+        <p id="clock"></p>
+    </div>
+    <script>
+        let now = new Date();
+        //시간 변경 하는 객체가 위에 있어야 한다 그래야지 바뀐 날짜의 데이터를 받아서 출력 할 수 있다.
+        now.setDate(now.getDate()+100);
+        let nowyear = now.getFullYear();
+        let nowmonth = now.getMonth()+1;
+        // now.setDate(now.getDate()-3); // 날짜만 바꾸길 원하면 날 위에서 하면 된다. 
+    
+        let nowdate = now.getDate();
+
+
+        // let hour = now.getHours() 
+        // let minute = now.getMinutes() 
+        // let second = now.getSeconds() 
+    
+        document.querySelector("#time").innerHTML = `오늘은 ${nowyear}년 ${nowmonth}월 ${nowdate}일 이다.`;
+
+        // 몇시 몇분 몇초인지 구하고 디지털 시간으로 구하라 
+        // document.querySelector("#clock").innerHTML = `${hour}시 ${minute}분 ${second}초`;
+
+        setInterval(function(){
+            let nowd = new Date();
+            hour.innerHTML = nowd.getHours();
+            minute.innerHTML = nowd.getMinutes();
+            second.innerHTML = nowd.getSeconds();
+        },1000)
+
+
+    </script>
+</body>
+</html>

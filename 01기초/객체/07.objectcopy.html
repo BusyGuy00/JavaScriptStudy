@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let user = {
+            name : "green",
+            age : 20,
+        }
+        let user2 = user;
+        // user.name = "bbb";
+        // console.log(user);
+        // console.log(user2);
+
+        let user3 = {};     //for in 은 key(객체,밸류)를 가져온다 for of은 배열(값,인덱스)을 가져온다
+        for (let a in user) {   //a에 green 20이 담겨서 for문이 돌아간다. 그래서 값음 green 20이 라는 프로퍼티가 생긴다.
+            user3[a] = user [a];        
+        }
+        user.name = "bbb";
+        console.log(user);
+        console.log(user2)
+        console.log(user3);
+
+    //  object.assign(복사될 대상, 복사할 객체) 
+        let clone = {};
+        Object.assign(clone, user);
+        console.log(clone);
+
+
+        // 밑에와 같이 간략화 시킬 수 있다.
+        let clone2 =  Object.assign ({}, user);
+        
+        let dog1 = {
+            name : "구름",
+            age : 2,
+
+        }
+        // ------------------------ dog1에 dog2의 흰색 추가 하기 
+        // let dog2 = {
+        //     color : "흰색"
+
+        // }
+
+        // Object.assign(dog1, dog2);  //도그 1에 도그 2를 추가 시켰다
+        //--------------------------dogr1에 dog2의 흰색과 이름을 덮어 씌우기
+        let dog2 = {
+            color : "흰색",
+            name : "솜"
+        }
+        Object.assign(dog1, dog2);  // 이름까지 덮어 씌울 수 있다.
+        console.log(dog1);
+
+        // -------------------------------스프래드 구문 
+
+        let dog3 = {...dog1, color : "흰색"}; //dog1을 복사하고 옆에 원하는 key를 넣을 수 있다. 
+        console.log(dog3);
+        
+
+    </script>
+</body>
+</html>

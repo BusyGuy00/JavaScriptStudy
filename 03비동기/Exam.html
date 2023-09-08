@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box; }
+        div { text-align: center; }
+        #header {
+            background: pink;
+            color: #fff;
+            line-height: 80px;
+            font-size: 36px;
+        }
+        #text {
+            color: pink;
+            font-size: 62px;
+            padding: 30px;
+        }
+        p {
+            padding: 10px;
+        }
+        input {
+            line-height: 40px;
+            width: 200px;
+            padding-left: 10px;
+        }
+        button {
+            line-height: 40px;
+            width: 200px;
+        }
+    </style>
+     <!--defer  스크립트가 밑으로 가야 하지만 defer라는 속성으로 마지막에 읽게 할 수 있다. --> 
+     <script defer src="gamejs.js"></script>
+</head>
+<body>
+    <div id="header">
+        타자게임
+    </div>
+    <div>
+        <div id="text">
+            display
+        </div>
+        <p><input type="text" id="inputText"></p>
+        <p>남은시간: <span id="time">0</span>초 점수: <span id="score">0</span>점 </p>
+        <p><button id="gameBtn">게임시작</button></p>
+    </div>
+    <script>
+        let displayText = document.querySelector('#text');
+        let inputWord = document.querySelector('#inputText');
+        let scoreDisplay = document.querySelector('#score');
+        let timeDisplay = document.querySelector('#time');
+        let btn = document.querySelector('#gameBtn');
+        let score = 0;
+        let time = 20;
+        let isPlaying;
+        let timeInterval;
+        // 글자배열
+        let texts = [ 'display', 'float', 'background', 'color', 'position', 'clear', 'flex', 'textalign', 'fontweight', 'top' ]
+        let randomNum = Math.floor(Math.random()*10);
+        displayText.innerHTML = texts[randomNum];
+
+        // 게임시작 버튼을 클릭하면
+        // isPlaying 값을 true로 할당
+        // 버튼의 값을 게임중으로 변경
+        // timeInterval을 실행
+        btn.addEventListener('click', function(){
+            if(isPlaying) return;
+            btn.innerHTML = '게임중';
+            isPlaying = true;   // 게임진행중
+            timeDisplay.innerHTML = time;   // 초기타임 지정
+            timeInterval = setInterval(timer, 1000);   // 1초마다 timer 함수를 실행
+        })
+        function timer() {
+            time > 0? time--: isPlaying = false;
+            timeDisplay.innerHTML = time;
+            if(!isPlaying) {
+                btn.innerHTML = '게임종료';
+                clearInterval(timeInterval);
+            }
+        }
+        inputWord.addEventListener('input', function(){
+            if(!isPlaying) return;
+            // input의 값과 화면의 글자가 일치할 때 점수를 1씩 더하기
+            if(displayText.innerHTML === inputWord.value) {
+                score += 1;
+                let randomNum = Math.floor(Math.random()*10);
+                displayText.innerHTML = texts[randomNum];
+                inputWord.value ="";
+                scoreDisplay.innerHTML = score;
+            }
+        });
+    </script>
+</body>
+</html>

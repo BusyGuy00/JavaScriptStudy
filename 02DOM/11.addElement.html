@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+        <li>list4</li>
+    </ul>
+
+
+    <script>
+        // 모든 li에 값을 주는 방법이다
+
+        //유사 배열 - 노드 리스트
+        let lis = document.querySelectorAll("li");
+        for (let i=0; i<lis.length; i++){
+            lis[i].style.background="lightblue";
+            console.log(i)
+        }
+        // lis.forEach((li,index)=>{// 순환 처리를 해준다 index가 아닌 i라고 해도 괜찮다
+        //     li.style.background="lightblue";
+        //     console.log(index);
+        // }) 
+
+        //-------------------------------형제 요소 노드 지정 
+            let li2 = document.querySelector("li:nth-child(2)");
+            let prev = li2.previousElementSibling; //이전것 지정
+            let next = li2.nextElementSibling; // 다음것 지정 
+            console.log(prev);
+            console.log(next);
+            li2.parentElement.style.background = "pink"; //부모 요소를 찾아서 지정 
+
+        //-------------------------------요소 노드 생성
+        let li = document.createElement("li");  //li생성
+        let textnode = document.createTextNode("list5"); //내용
+        li.append(textnode);                            //텍스트 li에 넣기 
+        document.querySelector("ul").append(li);
+        // document.querySelector("ul").prepend(li); 맨앞에 붙이기 
+        //ul에 만들어준 li추가
+
+        //---------------------------------------자식 요소 노드 탐색 
+        let ul = document.querySelector("ul");
+        ul.firstElementChild.style.color = "red";
+        ul.lastElementChild.style.color = "yellow";
+        ul.children[2].style.color = "red"; // 배열로 받아서 지정 하는 배열에 특정 값을 준다. 
+        ul.querySelector("li:nth-child(3)").style.fontSize ="42px";
+
+
+    </script>
+
+
+</body>
+</html>

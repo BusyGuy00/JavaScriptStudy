@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            background-color: aliceblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 1200px;
+            width: 100%;
+        }
+        div:nth-child(1){
+            background-color: green;
+            height: 0;
+            transition: 0.5s;
+        }
+         div:nth-child(2){
+            background-color: greenyellow;
+            height: 0;
+            transition: 0.5s;
+        }
+         div:nth-child(3){
+            background-color: goldenrod;
+            height: 0;
+            transition: 0.5s;
+        }
+        .on{
+            height: 1200px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+    </ul>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        let liA= document.querySelector("li:nth-child(1)");
+        let divA = document.querySelector("div:nth-child(1)");
+        let liB = document.querySelector("li:nth-child(2)");
+        let divB = document.querySelector("div:nth-child(2)");
+        let liC = document.querySelector("li:nth-child(3)");
+        let divC = document.querySelector("div:nth-child(3)");
+
+        liA.addEventListener("mouseenter",function(){
+            divA.classList.add("on");
+        })
+        liA.addEventListener("mouseleave",function(){
+            divA.classList.remove("on");
+        })
+
+
+    </script>
+</body>
+</html>

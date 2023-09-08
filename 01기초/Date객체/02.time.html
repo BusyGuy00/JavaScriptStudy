@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let firstDate = new Date(2023, 4, 5); //4은 5월을 뜻한다
+        let today = new Date(); 
+        // 밀리초로 변환 현재 밀리초에서 firstDate의 밀리초를 빼주고 
+        // 하루 단위로 변환
+        let startTime = firstDate.getTime();
+        let todayTime = today.getTime();
+        // 원하는 날짜를 계산 후에 소수점을  Math.floor를 통해서 반내림을 통해서 정수를 구해준다.
+        let day = Math.floor( (todayTime - startTime)/ (1000*60*60*24))
+        console.log (`우리가 만난지 ${day}일 입니다.`)
+    </script>
+    <!-- var 입력 = document.querySelector('#accent');
+var 계산 = document.querySelector("#calculation");
+var 현재 = new Date();
+
+function 일수계산기 (num){
+    var 입력값 = 입력.value; 
+    var 과거 = new Date(입력값);
+    var 밀리초일수 = 과거.getTime() + num*(1000*60*60*24);
+    var 일수 = new Date(밀리초일수);
+    var 년 = 일수.getFullYear();
+    var 월 = 일수.getMonth()+1;
+    var 일 = 일수.getDate()-1;
+
+    var 데이트 = document.querySelector("#date" + num);
+    데이트.textContent = 년 + "년" + 월 + "월" + 일 + "일";
+}
+
+계산.addEventListener('click', function(e){
+    e.preventDefault();
+    
+    일수계산기(100);
+    일수계산기(200);
+    일수계산기(365);
+    일수계산기(500);
+}); -->
+<!-- <!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>D-Day for love</title>
+	<link href="css/d-day.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="day1">
+			<h3>우리 만난지</h3>
+			<form>
+				<input type="text" id="accent" >
+				<button id = "calculation">계산하기</button>
+			</form>
+			<div>
+			</div>
+			</div>
+			<div class="bar">기념일 계산</div>
+			<div class="day2">
+				<ul>
+					<li class="item-title">100일</li>         
+					<li class="item-date" id="date100"></li>
+				</ul>
+				<ul>
+					<li class="item-title">200일</li>
+					<li class="item-date" id="date200"></li>
+				</ul>     
+				<ul>
+						<li class="item-title">1년</li>
+						<li class="item-date" id="date365"></li>
+					</ul>      
+				<ul>
+							<li class="item-title">500일</li>
+							<li class="item-date" id="date500"></li>
+						</ul>      									     
+			</div>
+		</div>
+		<script src="js/dday.js"></script>
+	</html> -->
+</body>
+</html>

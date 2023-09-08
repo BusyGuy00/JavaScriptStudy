@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{ margin: 0; padding: 0; box-sizing: border-box;}
+
+        #imgView {
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            overflow: hidden;
+        }
+        #imgDivs {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* script 에서 transition을 줄 수 있다. */
+            /* transition: 0.3s; */
+        }
+        .imgdiv {
+            position: absolute;
+            top:0;
+        }
+        .btn {
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: blueviolet;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%);
+        }
+        #prevbtn{
+            left: calc(50% - 400px);
+        }
+        #nextbtn{
+            left: calc(50% + 380px);
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div id="imgView">
+            <div id="imgDivs">
+                <div class="imgdiv"> <img src="./images/img_lights1.jpg" alt=""></div>
+                <div class="imgdiv"> <img src="./images/img_lights2.jpg" alt=""></div>
+                <div class="imgdiv"> <img src="./images/img_lights3.jpg" alt=""></div>
+                <div class="imgdiv"> <img src="./images/img_lights4.jpg" alt=""></div>
+            </div>
+        </div>
+        <div id="prevbtn" class="btn">이전</div>
+        <div id="nextbtn" class="btn">다음</div>
+    </div>
+    
+    <script>
+        const imgDivs = document.querySelector("#imgDivs");
+        //노드의 첫번째 자식 요소 노드 선택
+        const cloneFirst = imgDivs.firstElementChild.cloneNode(true); 
+        //노드의 마지막 자식 요소 노드 선택
+        const cloneLast = imgDivs.lastElementChild.cloneNode(true);
+        //버튼 노드 생성 
+        const nextbtn = document.querySelector("#nextbtn");
+        const prevbtn = document.querySelector("#prevbtn")
+        // 첫번쨰 div를 마지막에 추가
+        imgDivs.append(cloneFirst);
+        // 마지막 div를 처음에 추가
+        imgDivs.prepend(cloneLast);
+        const slideImgs = document.querySelectorAll(".imgdiv")
+        //스타일 수정하기
+
+        slideImgs.forEach((img,index)=>{
+            img.style.left = `${index*100}%`;
+        })
+        //보이는 이미지를 1번으로 바꾸기 위해서 넣어준다.
+        imgDivs.style.left = "-100%";
+
+        let current= 1;
+        let next;
+        let prev;
+        let timer;
+
+        //div를 이동 시키는 함수
+        function divMove(num){
+            imgDivs.style.transition = "0.3s";
+            imgDivs.style.left =`${-(num*100)}%`;
+            current = num;
+            console.log(current)
+                  //무한히 슬라이드가 넘어가는걸 방지 하고 1번으로 그림 바꾸기
+                if(num == 5){
+                console.log("마지막 이미지 입니다.")
+                setTimeout(function(){
+                    imgDivs.style.transition = "0s";
+                    imgDivs.style.left = "-100%";
+                    current = 1;
+                },300)
+                
+            }
+        }
+        //div 반대 쪽으로 이동 시키는 함수 
+        function divMoveright(num){
+            imgDivs.style.transition = "0.3s";
+            imgDivs.style.left =`${-(num*100)}%`;
+            current = num;
+            console.log(current)
+                  //무한히 슬라이드가 넘어가는걸 방지 하고 1번으로 그림 바꾸기
+                if(num == 0){
+                console.log("첫번째 이미지 입니다. ")
+                setTimeout(function(){
+                    imgDivs.style.transition = "0s";
+                    imgDivs.style.left = "-400%";
+                    current = 4;
+                },300)
+                
+            }
+        }
+
+        //setInteval 시작 하는 함수 
+        function startIt(){
+            //
+            if(timer) {stopIt}//{return;}
+            //마우스 이벤트 시작이 안돼서 수정 확인을 위한것 {return;}으로 인해서 끝이 났다는 것을 확인 했는데 계속 작동 하지 않고 끝나 버린다. 
+            //stop문을 만든 후에는 stop로 바꿔 줘서 계속 작동하게 만들었다.
+            console.log("호출됨")
+            timer = setInterval(function(){
+                divMove(current+1)
+            },3000)
+        }
+        // setInteval 정지 하는 함수 
+        function stopIt(){
+            clearInterval(timer);
+        }
+        startIt();
+
+        //다음 버튼에 이벤트 연결 하기 
+        //마우스 올리면 자동이동 종료
+        //마우스 내리면 자동이동 시작 
+        nextbtn.addEventListener("mouseenter",stopIt);
+        nextbtn.addEventListener("mouseleave",startIt);
+        nextbtn.addEventListener("click", function(){
+            next = current+1;
+            divMove(next);
+        })
+        //반대로 이동 시키는 함수
+        prevbtn.addEventListener("mouseenter",stopIt);
+        prevbtn.addEventListener("mouseleave",startIt);
+        prevbtn.addEventListener("click", function(){
+            prev = current-1;
+            divMoveright(prev);
+        })
+       
+    </script>
+</body>
+</html>

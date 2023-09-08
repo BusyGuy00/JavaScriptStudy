@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //네트워크에 요청  리퀘스트(요청) 리스폰스(응답) 
+        fetch("https://jsonplaceholder.typicode.com/posts")
+        //fetch로 요청을 하고  .then(res=>res.json()) 응답이 올때 까지 기다린후 res.json() 형태로 파싱을 한다.
+            .then(res=>res.json())
+        //  res.json() 형태로 파싱이 다될때 까지   .then(data=>console.log(data));은 기다린다. 
+            .then(data=>console.log(data));
+    </script>
+</body>
+</html>

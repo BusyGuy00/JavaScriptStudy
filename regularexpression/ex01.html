@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div>
+    <input type="text" id="id">
+    <input type="text" id="password">
+    <button onclick="chkPW()">signUp</button>
+    </div> -->
+
+        <input type="text" id="id">
+        <input type="text" id="password">
+        <button onclick="chkPW2()">signUp</button>
+
+    <script>
+        // function chkPW(){
+        //     let pw = document.querySelector("#password").value;
+        //     let num = pw.search(/[0-9]/g);
+        //     let eng = pw.search(/[a-z]/ig);
+        //     //\,',",/ 튿수문자로만 사용할때 앞에 \ 가 붙어야 한다.
+        //     let spe = pw.search(/[`~!@#$^&*|\\\'\";:\/]/g);
+        //     //1.길이 체크 비밀번호는 8~20자 까지 
+        //     if(pw.length <8 || pw.length > 20){
+        //         alert("8자리 ~20자리 이내로 입력해 주세요");
+        //         return false;
+        //     }
+        //     //공백체크 공백이 있으면 해당하는 인덱스를 반환
+        //     //공백이 없으면 -1을 반환
+        //     else if(pw.search(/\s/) != -1) {
+        //         alert("비밀번호는 공백 없이 입력해 주세요")
+        //         return false;
+        //     }
+        //     //영문, 숫자, 특수문자 혼합했는지 체크 
+        //     //0보다 작다는 것은 -1이 리턴되는 것 없다는 뜻이다.
+        //     else if (num < 0 || eng < 0 || spe < 0 ){
+        //         alert("영문, 숫자, 특수문자 혼합하여 사옹해 주세요");
+        //         return false;
+        //     }else {
+        //         alert("통과");
+        //     }
+        // }
+
+        function chkPW2(){
+            //비밀번호 8자리 이상 숫자 포함, 영대 문자 포함 
+            //영어 소문자 포함 특수문자 포함 
+           //.은 줄바꿈 빼고 전부다 {8, }은 8이상
+            let reg =/^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[a-z])(?=.*?[#?!@$^&-]).{8,}$/;
+            //최소 한개 이상의 대문자, 최소 한개이상의 숫자, 최소 한개 이상의 소문자, 최소 한개 이상의 특수 문자
+            let pw = document.querySelector("#password").value;
+            if(!reg.test(pw)){
+                alert("비밀번호 8자리 이상이어야 하며 숫자, 대문자, 소문자, 특수문자를 포함해야 한다.")
+
+            }else{
+                alert("통과2");
+            }
+        }
+    </script>
+</body>
+</html>

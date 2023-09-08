@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        @keyframes fade {
+            0%{opacity: 0.4;
+            }
+            100%{opacity: 1;
+            }
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+        }
+        /* div 전부 중앙으로  */
+        div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            animation: fade 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div><img src="./images/photo01.gif" alt=""></div>
+    <div><img src="./images/photo02.gif" alt=""></div>
+    <div><img src="./images/photo03.gif" alt=""></div>
+    <div><img src="./images/photo04.gif" alt=""></div>
+    <script>
+        let divs = document.querySelectorAll("div");
+        //현재 보이는 div의 index
+        let indexNum = 0; 
+        let nextNum;
+        //div전부 디스플레이 none 0~3까지 2초마다 none과 block를 반복 
+        divs.forEach(div => div.style.display="none");
+        divs[0].style.display = "block";
+        setInterval(function(){
+            //나머지 연산자로 4를 나눠 0을 만들어 줘서 배열의 끝에 처음으로 돌아 간다.
+            // % divs.length 길이 만큼에 나누기 떄문에 멈추지 않는다.
+            nextNum = (indexNum+1) % divs.length;
+            divs[indexNum].style.display = "none";
+            divs[nextNum].style.display = "block";
+            indexNum = nextNum;
+        },2000);
+    </script>
+</body>
+</html>

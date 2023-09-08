@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>좋아하는 과일 선택하기</p>
+    <!-- 끝에 적은 checked로 먼저 체크 되어 있게 표현 할 수 있다. -->
+    <p>🍉<input type="checkbox" name="fruits" value="🍉" checked></p>
+    <p>🍈<input type="checkbox" name="fruits" value="🍈"></p> 
+    <p>🍎<input type="checkbox" name="fruits" value="🍎"></p>
+    <p>🍓<input type="checkbox" name="fruits" value="🍓"></p>
+    <p><button>결과 보기</button></p>
+    <p id="result"></p>
+    <script>
+        //button이 하나여서 태그로 
+        const btn = document.querySelector("button");
+        //클릭 이벤트 생성
+        btn.addEventListener("click",function(){
+           let fruitsInput = document.querySelectorAll("input");
+           let str = "";
+           fruitsInput.forEach(input=>{
+            //트루 일시 input의 밸류 값을 넣어주고 아닐시에는 문자열만 넣어주라는 실행문
+            str = input.checked ? str + input.value : str;
+            //해당 하는 결과가  <p id="result"></p>를 통해서 밑에 출력 하게 한다 .
+            result.innerHTML = str;
+           })
+
+        })
+    </script>
+</body>
+</html>

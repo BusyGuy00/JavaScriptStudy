@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let json = "{green json}";
+        try{
+            let user = JSON.parse(json);
+            console.log("랄랄라")
+        }
+      
+        //try catch문이 있어서 오류가 있지만 구문의 끝까지 실행 시킬 수 있다. 
+        // 그래서 오류가 날거 같은 구문을 try catch문을 사용해서 오류를 확인 하면서 전체를 실행 시켜 확인이 가능 하다.
+        //  try{
+        //     // {{{{{{{{{{{{{{{{{{{{{{{ 이와같은 문법적인 오류는 잡아 내지 못 하고 실행가능한 코드인 run time(예외-인셉션) 오류만 잡아 낸다.
+        //     alert("try 블럭 시작");
+        //     green;
+        //     alert("try 블럭 끝");
+        //  }
+         catch(err){
+            alert("에러가 발생 했습니다.");
+            console.log(err.name);
+            console.log(err.message);
+         }
+         console.log("금요일 입니다")
+    </script>
+</body>
+</html>

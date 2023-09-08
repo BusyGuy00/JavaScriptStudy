@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <p>아이디 <input type="text" id="userId" name="userId"></p>
+        <p>비밀번호 <input type="text " id="userPw" name="userPw"> </p>
+            <!-- submit 이벤트로 자동 전송 하게 된다 -->
+        <p><button type="submit">전송</button></p>
+    </form>
+    <script>
+        let form= document.querySelector("form");
+        let idInput = document.querySelector("#userId");
+        let pwInput = document.querySelector("#userPw");
+        form.addEventListener("submit",function(e){
+            //기본 이벤트 제거 (자동으로 전송 되는 submit의 기능을 해지 했다.)
+            e.preventDefault();
+            formCheck();
+        })
+        //form 체크하는 함수 
+        function formCheck(){
+            //아이디 입력시 빈칸이 아니고 글가수가 5개 이상인지 체크 
+            //빈칸인지 아닌지 체크 하고 문자열 5개 인지
+            //최종적으로 오류로 인해 길이 체크로 변경
+            if(idInput.value.length >=5){
+                console.log(idInput.value);
+            }else{
+                console.log("아이디를 다시 작성 하시오")
+            }
+            //패스워드는 5글자 이상이고 숫자를 하나이상 포함 헤야 한다.
+            if(pwInput.value.length >=5){
+                            //문자를 .split("");을 통해배열로 바꾼다 
+                let pwArr = pwInput.value.split("");
+                let isNum = false;
+                pwArr.forEach(ch=>{ // 문자열 배열 green => [g,r,e,e,n]으로 바뀌고 그걸 통해서 forEach를 작동 시키고 ch에 담은 후에 Number에 대입 해서 계산 한다 
+                    // 그 후 Number에서 체크를 할때 하나라도 숫자가 있으면 true가 되고 없으면 false가 된다.
+                    //문자열 pwArr을 대입 했을때숫자이 있다면 트루 으로했을때 NaN이 아닐때 (넘버타입)
+                    if(!isNaN(Number(ch))){
+                        isNum = true;
+                        return
+                    }
+                })
+                if(isNum){
+                    console.log("숫자를 포함 하고 있습니다.")
+                }else{
+                    console.log("숫자를 포함 하고 있지 않습니다..")
+                }
+            }else {
+                console.log("비밀번호 5글자 이상 작성")
+            }
+        }
+    </script>
+</body>
+</html>
